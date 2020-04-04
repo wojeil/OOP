@@ -11,10 +11,6 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 //where all my new objects will be pushed 
 const fullSquadRender = [];
-render(fullSquadRender);
-
-
-
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -48,7 +44,7 @@ const manager = () => {
     ])
     .then(answers => {
       //place manager into empty array
-      var m =Manager + answers;
+      var m = new Manager(answers.name,answers.id,answers.email,answers.officeNumber);
       fullSquadRender.push(m);
        newMember();
     })
@@ -122,7 +118,7 @@ const engineer = () => {
     ])
     .then(answers => {
       //place engineer into empty array
-      var e =Engineer+answers;
+      var e = new Engineer(answers.name,answers.id,answers.email,answers.github);
       fullSquadRender.push(e);
       newMember();
     })
@@ -162,7 +158,7 @@ const intern=()=>{
     ])
     .then(answers => {
       //place intern into empty array
-      var i =Intern+answers;
+      var i = new Intern(answers.name,answers.id,answers.email,answers.school);
       fullSquadRender.push(i);
       newMember();
     })
