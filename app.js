@@ -43,7 +43,10 @@ inquirer
     },
   ])
   .then(answers => {
-    return newMember;
+      //place manager into empty array
+      Manager = answers,
+      fullSquadRender.push(Manager);
+      return newMember;
     
   })
   .catch(error => {
@@ -63,7 +66,7 @@ const newMember = () =>{
     /* Pass your questions in here */
     {
         type: "list",
-        message: "Would you like to add a new memeber?",
+        message: "Would you like to add a new member?",
         choices: ["Engineer","Intern","None"],
         name: "newMember"
     }
@@ -124,6 +127,9 @@ const engineer = () =>{
     },
   ])
   .then(answers => {
+      //place engineer into empty array
+      Engineer=answers
+      fullSquadRender.push(Engineer);
     return newMember;
     
   })
@@ -163,6 +169,9 @@ const intern = () =>{
     },
   ])
   .then(answers => {
+      //place intern into empty array
+      Intern = answers
+      fullSquadRender.push(Intern);
     return newMember;
     
   })
@@ -177,7 +186,7 @@ const intern = () =>{
 
 const fullSquad= ()=>{
     //will contain fs write
-    
+
 }
 
 
