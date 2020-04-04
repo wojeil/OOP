@@ -25,28 +25,69 @@ const manager = () => {
         type: "input",
         message: "What is your name?",
         name: "name",
+        validate: function (value) {
+          var pass = value.match(
+            /[a-z]/
+          );
+          if (pass) {
+            return true;
+          }
+
+          return 'Please enter a valid name';
+        }
       },
       {
         type: "input",
         message: "What is your ID?",
         name: "id",
+        validate: function (value) {
+          var pass = value.match(
+            /[0-9]/
+          );
+          if (pass) {
+            return true;
+          }
+
+          return 'Please enter a valid ID';
+        }
       },
       {
         type: "input",
         message: "What is your email address?",
         name: "email",
+        validate: function (value) {
+          var pass = value.match(
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+          );
+          if (pass) {
+            return true;
+          }
+
+          return 'Please enter a valid email';
+        }
+
       },
       {
         type: "input",
         message: "What is your office number?",
         name: "officeNumber",
+        validate: function (value) {
+          var pass = value.match(
+            /[0-9]/
+          );
+          if (pass) {
+            return true;
+          }
+
+          return 'Please enter a valid office number';
+        }
       },
     ])
     .then(answers => {
       //place manager into empty array
-      var m = new Manager(answers.name,answers.id,answers.email,answers.officeNumber);
+      var m = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
       fullSquadRender.push(m);
-       newMember();
+      newMember();
     })
     .catch(error => {
       if (error.isTtyError) {
@@ -71,15 +112,15 @@ const newMember = () => {
     .then(answers => {
       //jump to engineer prompts
       if (answers.newMember === "Engineer") {
-         engineer();
+        engineer();
       }
       //jump to intern prompts
       if (answers.newMember === "Intern") {
-         intern();
+        intern();
       }
       //if squad is complete then run full squad
       if (answers.newMember === "None. Complete") {
-         fullSquad();
+        fullSquad();
       }
     })
     .catch(error => {
@@ -98,17 +139,47 @@ const engineer = () => {
       {
         type: "input",
         message: "What is your engineer's name?",
-        name: "name"
+        name: "name",
+        validate: function (value) {
+          var pass = value.match(
+            /[a-z]/
+          );
+          if (pass) {
+            return true;
+          }
+
+          return 'Please enter a valid name';
+        }
       },
       {
         type: "input",
         message: "What is your engineer's ID?",
-        name: "id"
+        name: "id",
+        validate: function (value) {
+          var pass = value.match(
+            /[0-9]/
+          );
+          if (pass) {
+            return true;
+          }
+
+          return 'Please enter a valid ID';
+        }
       },
       {
         type: "input",
         message: "What is your engineer's email address?",
-        name: "email"
+        name: "email",
+        validate: function (value) {
+          var pass = value.match(
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+          );
+          if (pass) {
+            return true;
+          }
+
+          return 'Please enter a valid email';
+        }
       },
       {
         type: "input",
@@ -118,7 +189,7 @@ const engineer = () => {
     ])
     .then(answers => {
       //place engineer into empty array
-      var e = new Engineer(answers.name,answers.id,answers.email,answers.github);
+      var e = new Engineer(answers.name, answers.id, answers.email, answers.github);
       fullSquadRender.push(e);
       newMember();
     })
@@ -130,7 +201,7 @@ const engineer = () => {
       }
     });
 }
-const intern=()=>{
+const intern = () => {
   //place prompts for intern
   inquirer
     .prompt([
@@ -138,17 +209,47 @@ const intern=()=>{
       {
         type: "input",
         message: "What is your intern's name?",
-        name: "name"
+        name: "name",
+        validate: function (value) {
+          var pass = value.match(
+            /[a-z]/
+          );
+          if (pass) {
+            return true;
+          }
+
+          return 'Please enter a valid name';
+        }
       },
       {
         type: "input",
         message: "What is your intern's ID?",
-        name: "id"
+        name: "id",
+        validate: function (value) {
+          var pass = value.match(
+            /[0-9]/
+          );
+          if (pass) {
+            return true;
+          }
+
+          return 'Please enter a valid ID';
+        }
       },
       {
         type: "input",
         message: "What is your intern's email address?",
-        name: "email"
+        name: "email",
+        validate: function (value) {
+          var pass = value.match(
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+          );
+          if (pass) {
+            return true;
+          }
+
+          return 'Please enter a valid email';
+        }
       },
       {
         type: "input",
@@ -158,7 +259,7 @@ const intern=()=>{
     ])
     .then(answers => {
       //place intern into empty array
-      var i = new Intern(answers.name,answers.id,answers.email,answers.school);
+      var i = new Intern(answers.name, answers.id, answers.email, answers.school);
       fullSquadRender.push(i);
       newMember();
     })
@@ -172,7 +273,7 @@ const intern=()=>{
 }
 const fullSquad = () => {
   //will contain fs write to add all the above into an html file
-  fs.writeFile(outputPath,render(fullSquadRender),err => {
+  fs.writeFile(outputPath, render(fullSquadRender), err => {
     if (err) {
       return console.log(err);
     }
