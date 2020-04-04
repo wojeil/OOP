@@ -64,7 +64,7 @@ const newMember = () => {
       {
         type: "list",
         message: "Would you like to add a new member?",
-        choices: ["Engineer", "Intern", "None"],
+        choices: ["Engineer", "Intern", "None. Complete"],
         name: "newMember"
       }
     ])
@@ -78,7 +78,7 @@ const newMember = () => {
          intern();
       }
       //if squad is complete then run full squad
-      if (answers.newMember === "None") {
+      if (answers.newMember === "None. Complete") {
          fullSquad();
       }
     })
@@ -171,7 +171,7 @@ const intern=()=>{
     });
 }
 const fullSquad = () => {
-  //will contain fs write
+  //will contain fs write to add all the above into an html file
   fs.writeFile(outputPath,render(fullSquadRender),err => {
     if (err) {
       return console.log(err);
