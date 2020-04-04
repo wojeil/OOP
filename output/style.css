@@ -1,0 +1,16 @@
+body{
+    background-color: cornsilk;
+}
+
+#top {
+    background-color: rgba(126, 60, 247, 0.767);
+
+}
+
+.card-header {
+    background-color: rgba(126, 60, 247, 0.767);
+}
+
+.card {
+    margin: 10px;
+}
