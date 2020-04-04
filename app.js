@@ -10,15 +10,15 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 ​
 const render = require("./lib/htmlRenderer");
 ​//where all my new objects will be pushed 
-const fullSquadRender = [];
+const fullSquadRender=[];
 
-render(fullSquadRender);
-manager();
+
+
 ​
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-const manager =() =>{
+const manager =()=>{
     //place all manager prompts
     
 inquirer
@@ -45,15 +45,14 @@ inquirer
         name: "officeNumber",
     },
   ])
-  .then(answers => {
+  .then(answers=>{
       //place manager into empty array
-      Manager = answers,
+      Manager = answers;
       fullSquadRender.push(Manager);
       return newMember;
-    
-  })
-//   .then(newMember)
-//   .then()
+    })
+    //  .then(newMember)
+    //  .then()
   .catch(error => {
     if(error.isTtyError) {
       // Prompt couldn't be rendered in the current environment
@@ -61,9 +60,7 @@ inquirer
       // Something else when wrong
     }
   });
-
 }
-
 const newMember = () =>{
     inquirer
     //place prompt to ask for new member preff list
@@ -89,23 +86,16 @@ const newMember = () =>{
     if(answers.newMember === "None"){
         return fullSquad;
     }
-    
-    
-  })
-  .catch(error => {
+    })
+  .catch(error=>{
     if(error.isTtyError) {
       // Prompt couldn't be rendered in the current environment
     } else {
       // Something else when wrong
     }
   });
-
-    
-   
-
 }
-
-const engineer = () =>{
+const engineer=()=>{
     //place prompts for engineer
     inquirer
   .prompt([
@@ -131,14 +121,13 @@ const engineer = () =>{
         name: "github"
     },
   ])
-  .then(answers => {
+  .then(answers=>{
       //place engineer into empty array
       Engineer=answers
       fullSquadRender.push(Engineer);
     return newMember;
-    
-  })
-  .catch(error => {
+    })
+  .catch(error=>{
     if(error.isTtyError) {
       // Prompt couldn't be rendered in the current environment
     } else {
@@ -146,8 +135,7 @@ const engineer = () =>{
     }
   });
 }
-
-const intern = () =>{
+const intern=()=>{
     //place prompts for intern
     inquirer
   .prompt([
@@ -173,23 +161,21 @@ const intern = () =>{
         name: "school"
     },
   ])
-  .then(answers => {
+  .then(answers=>{
       //place intern into empty array
       Intern = answers
       fullSquadRender.push(Intern);
     return newMember;
-    
-  })
-  .catch(error => {
-    if(error.isTtyError) {
+    })
+  .catch(error=>{
+    if(error.isTtyError){
       // Prompt couldn't be rendered in the current environment
-    } else {
+    } else{
       // Something else when wrong
     }
   });
 }
-
-const fullSquad= ()=>{
+const fullSquad=()=>{
     //will contain fs write
     fs.writeFile(outputPath,render(fullSquadRender), err =>{
         if(err){
@@ -200,6 +186,7 @@ const fullSquad= ()=>{
     )
 
 }
+manager();
 
 
 ​
