@@ -11,6 +11,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 //where all my new objects will be pushed 
 const fullSquadRender = [];
+render(fullSquadRender);
 
 
 
@@ -51,15 +52,13 @@ const manager = () => {
       fullSquadRender.push(m);
        newMember();
     })
-    //.then(newMember)
-    //  .then()
-    // .catch(error => {
-    //   if (error.isTtyError) {
-    //     // Prompt couldn't be rendered in the current environment
-    //   } else {
-    //     // Something else when wrong
-    //   }
-    // });
+    .catch(error => {
+      if (error.isTtyError) {
+        // Prompt couldn't be rendered in the current environment
+      } else {
+        // Something else when wrong
+      }
+    });
 }
 const newMember = () => {
   inquirer
@@ -87,13 +86,13 @@ const newMember = () => {
          fullSquad();
       }
     })
-    // .catch(error => {
-    //   if (error.isTtyError) {
-    //     // Prompt couldn't be rendered in the current environment
-    //   } else {
-    //     // Something else when wrong
-    //   }
-    // });
+    .catch(error => {
+      if (error.isTtyError) {
+        // Prompt couldn't be rendered in the current environment
+      } else {
+        // Something else when wrong
+      }
+    });
 }
 const engineer = () => {
   //place prompts for engineer
@@ -167,17 +166,17 @@ const intern=()=>{
       fullSquadRender.push(i);
       newMember();
     })
-    // .catch(error => {
-    //   if (error.isTtyError) {
-    //     // Prompt couldn't be rendered in the current environment
-    //   } else {
-    //     // Something else when wrong
-    //   }
-    // });
+    .catch(error => {
+      if (error.isTtyError) {
+        // Prompt couldn't be rendered in the current environment
+      } else {
+        // Something else when wrong
+      }
+    });
 }
 const fullSquad = () => {
   //will contain fs write
-  fs.writeFile(outputPath, render(fullSquadRender), err => {
+  fs.writeFile(outputPath,render(fullSquadRender),err => {
     if (err) {
       return console.log(err);
     }
