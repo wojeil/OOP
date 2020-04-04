@@ -11,6 +11,9 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 ​//where all my new objects will be pushed 
 const fullSquadRender = [];
+
+render(fullSquadRender);
+manager();
 ​
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -24,22 +27,22 @@ inquirer
     {
         type: "input",
         message: "What is your name?",
-        name: "name"
+        name: "name",
     },
     {
         type: "input",
         message: "What is your ID?",
-        name: "id"
+        name: "id",
     },
     {
         type: "input",
         message: "What is your email address?",
-        name: "email"
+        name: "email",
     },
     {
         type: "input",
         message: "What is your office number?",
-        name: "officeNumber"
+        name: "officeNumber",
     },
   ])
   .then(answers => {
@@ -49,6 +52,8 @@ inquirer
       return newMember;
     
   })
+//   .then(newMember)
+//   .then()
   .catch(error => {
     if(error.isTtyError) {
       // Prompt couldn't be rendered in the current environment
@@ -186,6 +191,13 @@ const intern = () =>{
 
 const fullSquad= ()=>{
     //will contain fs write
+    fs.writeFile(outputPath,render(fullSquadRender), err =>{
+        if(err){
+          return console.log(err);
+        }
+        return console.log("success!!!");
+    }
+    )
 
 }
 
