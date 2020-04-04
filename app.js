@@ -9,10 +9,178 @@ const OUTPUT_DIR = path.resolve(__dirname, "output")
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 ​
 const render = require("./lib/htmlRenderer");
-​
+​//where all my new objects will be pushed 
+const fullSquadRender = [];
 ​
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+
+const manager =() =>{
+    //place all manager prompts
+    
+inquirer
+  .prompt([
+    /* Pass your questions in here */
+    {
+        type: "input",
+        message: "What is your name?",
+        name: "name"
+    },
+    {
+        type: "input",
+        message: "What is your ID?",
+        name: "id"
+    },
+    {
+        type: "input",
+        message: "What is your email address?",
+        name: "email"
+    },
+    {
+        type: "input",
+        message: "What is your office number?",
+        name: "officeNumber"
+    },
+  ])
+  .then(answers => {
+    return newMember;
+    
+  })
+  .catch(error => {
+    if(error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else when wrong
+    }
+  });
+
+}
+
+const newMember = () =>{
+    inquirer
+    //place prompt to ask for new member preff list
+  .prompt([
+    /* Pass your questions in here */
+    {
+        type: "list",
+        message: "Would you like to add a new memeber?",
+        choices: ["Engineer","Intern","None"],
+        name: "newMember"
+    }
+  ])
+  .then(answers => {
+    //jump to engineer prompts
+    if(answers.newMember ==="Engineer"){
+        return engineer;
+    }
+    //jump to intern prompts
+    if(answers.newMember ==="Intern"){
+        return intern;
+    }
+     //if squad is complete then run full squad
+    if(answers.newMember === "None"){
+        return fullSquad;
+    }
+    
+    
+  })
+  .catch(error => {
+    if(error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else when wrong
+    }
+  });
+
+    
+   
+
+}
+
+const engineer = () =>{
+    //place prompts for engineer
+    inquirer
+  .prompt([
+    /* Pass your questions in here */
+    {
+        type: "input",
+        message: "What is your engineer's name?",
+        name: "name"
+    },
+    {
+        type: "input",
+        message: "What is your engineer's ID?",
+        name: "id"
+    },
+    {
+        type: "input",
+        message: "What is your engineer's email address?",
+        name: "email"
+    },
+    {
+        type: "input",
+        message: "What is your engineer's github?",
+        name: "github"
+    },
+  ])
+  .then(answers => {
+    return newMember;
+    
+  })
+  .catch(error => {
+    if(error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else when wrong
+    }
+  });
+}
+
+const intern = () =>{
+    //place prompts for intern
+    inquirer
+  .prompt([
+    /* Pass your questions in here */
+    {
+        type: "input",
+        message: "What is your intern's name?",
+        name: "name"
+    },
+    {
+        type: "input",
+        message: "What is your intern's ID?",
+        name: "id"
+    },
+    {
+        type: "input",
+        message: "What is your intern's email address?",
+        name: "email"
+    },
+    {
+        type: "input",
+        message: "What is your intern's school?",
+        name: "school"
+    },
+  ])
+  .then(answers => {
+    return newMember;
+    
+  })
+  .catch(error => {
+    if(error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else when wrong
+    }
+  });
+}
+
+const fullSquad= ()=>{
+    //will contain fs write
+    
+}
+
+
 ​
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
