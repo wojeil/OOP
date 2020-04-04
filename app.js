@@ -34,7 +34,7 @@ const manager = () => {
             return true;
           }
 
-          return 'Please enter a valid name';
+          return "Please enter a valid name";
         }
       },
       {
@@ -50,7 +50,7 @@ const manager = () => {
             return true;
           }
 
-          return 'Please enter a valid ID';
+          return "Please enter a valid ID";
         }
       },
       {
@@ -66,7 +66,7 @@ const manager = () => {
             return true;
           }
 
-          return 'Please enter a valid email';
+          return "Please enter a valid email";
         }
 
       },
@@ -83,7 +83,7 @@ const manager = () => {
             return true;
           }
 
-          return 'Please enter a valid office number';
+          return "Please enter a valid office number";
         }
       },
     ])
@@ -153,7 +153,7 @@ const engineer = () => {
             return true;
           }
 
-          return 'Please enter a valid name';
+          return "Please enter a valid name";
         }
       },
       {
@@ -169,7 +169,7 @@ const engineer = () => {
             return true;
           }
 
-          return 'Please enter a valid ID';
+          return "Please enter a valid ID";
         }
       },
       {
@@ -185,7 +185,7 @@ const engineer = () => {
             return true;
           }
 
-          return 'Please enter a valid email';
+          return "Please enter a valid email";
         }
       },
       {
@@ -226,7 +226,7 @@ const intern = () => {
             return true;
           }
 
-          return 'Please enter a valid name';
+          return "Please enter a valid name";
         }
       },
       {
@@ -242,7 +242,7 @@ const intern = () => {
             return true;
           }
 
-          return 'Please enter a valid ID';
+          return "Please enter a valid ID";
         }
       },
       {
@@ -258,7 +258,7 @@ const intern = () => {
             return true;
           }
 
-          return 'Please enter a valid email';
+          return "Please enter a valid email";
         }
       },
       {
