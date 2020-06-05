@@ -1,6 +1,6 @@
 # My Team
 
-<img src= (https://user-images.githubusercontent.com/60321934/82580850-bfc76100-9b5d-11ea-9ad8-3bb3a71708f5.png) width="100" height="100">
+<img src= "./Assets/appImage.png" width="350" height="200">
 
 
 
@@ -21,6 +21,9 @@ Install
 Deployment
 Node
 
+Try Me Live
+Fork Repo and run node app.js
+
 Built With
 Node 
 Inquirer
@@ -29,7 +32,7 @@ Authors
 Wadih Ojeil- Full Stack Web Developer
 
 License
-This project is licensed under the MIT License
+This project is licensed under the ISC License
 
 ## Purpose and Inspiration
 A different way to use inquirer and generate an html file. Learning experience with how to test my code. The fun of it is I can create cards with my team members' info and print them out.
